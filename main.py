@@ -19,3 +19,7 @@ def process_data():
     age = int(request.form.get("age"))
 
     return f"<p> Hello {escape(firstname)}, You are {age} years old. </p>"
+
+@app.route("/hobby")
+def hobby ():
+    return render_template("hobby.html")
