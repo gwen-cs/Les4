@@ -23,3 +23,16 @@ def process_data():
 @app.route("/hobby")
 def hobby ():
     return render_template("hobby.html")
+
+@app.route ("/submit", methods = ["POST"])
+def submit():
+    hobbies = request.form.getlist("hobbies")
+
+    html = "<h1>Je hobby's</h1><ul>"
+
+    for hobby in hobbies:
+        html += f"<li>{hobby}</li>"
+
+    html += "</ul>"
+
+    return html
